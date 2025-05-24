@@ -2,12 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 
-export async function GET(
-    request: NextRequest, 
-    { params }: { params: Promise<{ shortId: string }> }
-) {
+interface RouteParams {
+    params: {
+        shortId: string;
+    };
+}
+
+export async function GET(request: NextRequest, { params }: RouteParams) {
     try {
-        const { shortId } = await params;
+        const { shortId } = params;
 
         // 驗證 shortId 是否存在
         if (!shortId) {

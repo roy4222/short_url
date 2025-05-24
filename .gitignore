@@ -16,7 +16,6 @@
 # next.js
 /.next/
 /out/
-/cache/
 
 # production
 /build
@@ -40,7 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# webpack cache
-.cache/
-cache/

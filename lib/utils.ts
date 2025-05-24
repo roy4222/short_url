@@ -13,13 +13,13 @@ export function isValidUrl(url: string) {
     try {
         new URL(url);
         return true;
-    } catch (_error) {
+    } catch (error) {
         return false;
     }
 }
 
 //生成短網址
 export function formatShortUrl(shortId: string, baseUrl: string='') {
-    const base = baseUrl || 'https://roy422.ggff.net'
+    const base = baseUrl || 'http://localhost:3000'
     return `${base}/${shortId}`
 }
