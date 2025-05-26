@@ -2,6 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 
+/**
+ * 定義動態路由參數的型別介面
+ * 用於 Next.js App Router 中的動態路由 [shortId]
+ * 
+ * @interface RouteParams
+ * @property {Object} params - 路由參數物件
+ * @property {string} params.shortId - 從 URL 路徑中提取的短網址 ID
+ */
 interface RouteParams {
     params: {
         shortId: string;

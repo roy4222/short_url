@@ -19,7 +19,7 @@ export function isValidUrl(url: string) {
 }
 
 //生成短網址
-export function formatShortUrl(shortId: string, baseUrl: string='') {
+export function formatShortUrl(shortId: string, baseUrl?: string) {
     const base = baseUrl || 'http://localhost:3000'
     return `${base}/${shortId}`
 }

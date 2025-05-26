@@ -31,17 +31,21 @@ export async function POST(request: NextRequest) {
         let attempts = 0;
         const maxAttempts = 10;
 
+        // 透過迴圈機制確保短網址 ID 的唯一性（最多嘗試 10 次）
         while (!isUnique && attempts < maxAttempts) {
+            // 生成 6 位數的隨機短網址 ID
             shortId = generateShortUrl(6);
             
-            // 檢查 shortId 的唯一性
+            // 檢查生成的 shortId 在 Firestore 中是否已存在
             const urlsRef = collection(db, 'urls');
             const q = query(urlsRef, where('shortId', '==', shortId));
             const querySnapshot = await getDocs(q);
             
+            // 如果查詢結果為空，表示此 shortId 尚未被使用
             if (querySnapshot.empty) {
                 isUnique = true;
             } else {
+                // 如果 shortId 已存在，增加嘗試次數並重新生成
                 attempts++;
             }
         }
