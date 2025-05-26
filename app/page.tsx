@@ -84,7 +84,7 @@ export default function Home() {
       <div className="w-full max-w-md">
         {/* 頁面標題區域 */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-black mb-2">短網址產生器</h1>
+          <h1 className="text-3xl font-bold text-black mb-2">長網址產生器</h1>
           <p className="text-gray-600">將您的長網址轉換為簡短易分享的連結</p>
         </div>
 
